@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+</head>
+<body>
+
+
+
+<div id="app">
+  {{ message }}
+  {{ age }}
+  
+  <button @click="test()">Heyyy</button>
+</div>
+
+
+
+<script> 
+
+	var app = new Vue({
+		  el: '#app',
+		  data: {
+		    message: 'Hello Vue!',
+		    age: '19'
+		  },
+		  methods: {
+			  async test() {
+				 
+				  let response = await fetch('http://localhost:8080/bookingRooms')
+			      response = await response.json()
+			      console.log(response)
+					this.message = 'Hussam';
+				  
+			  }
+			  
+			  
+		  }
+		})
+	</script>
+</body>
+</html>
